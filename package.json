@@ -1,0 +1,42 @@
+{
+  "name": "auto-dash",
+  "version": "1.0.0",
+  "main": "./build/src/index.js",
+  "bin": {
+    "auto-dash": "build/src/index.js"
+  },
+  "devDependencies": {
+    "@types/node": "^14.11.2",
+    "gts": "^3.1.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "~4.7.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "gts lint",
+    "clean": "gts clean",
+    "dev": "tsnd src",
+    "compile": "tsc",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run lint"
+  },
+  "keywords": [],
+  "author": "Lucas Lopes",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "dotenv": "^16.0.3"
+  },
+  "types": "./build/src/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LucasLopesCaldas/auto-dash.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LucasLopesCaldas/auto-dash/issues"
+  },
+  "homepage": "https://github.com/LucasLopesCaldas/auto-dash#readme",
+  "description": ""
+}
