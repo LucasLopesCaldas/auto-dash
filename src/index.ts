@@ -2,7 +2,7 @@
 
 import 'dotenv/config';
 import {getDash} from './model/dashModel';
-import {execDash} from './services/dashService';
+import {execDash, listDeshes} from './services/dashService';
 import axios from 'axios';
 import config from './config';
 
@@ -11,8 +11,6 @@ const baseURL = config.BASE_URL;
 export const axiosInstance = axios.create({
   baseURL,
 });
-
-const args = process.argv.slice(2);
 
 const exec = async () => {
   try {
@@ -23,4 +21,16 @@ const exec = async () => {
   }
 };
 
-exec();
+const args = process.argv.slice(2);
+
+switch (args[0]) {
+  case 'list':
+    listDeshes().then(dashes =>
+      dashes.forEach((dash: {name: string}) => {
+        console.log(dash);
+      })
+    );
+    break;
+  default:
+    exec();
+}
