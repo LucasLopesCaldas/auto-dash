@@ -6,7 +6,7 @@ export const getDash = async (dashName: string) => {
   return decodeBase64(data.content);
 };
 
-export const getAllDashes = async () => {
+export const listAllDashes = async () => {
   const {data} = await axiosInstance.get('');
   return data.map((dash: {name: string}) => dash.name.replace('.sh', ''));
 };
