@@ -4,16 +4,16 @@ import {unlinkSync, writeFileSync} from 'fs';
 
 const exec = (
   command: string,
-  args?: string[],
+  args: string[],
   callback?: (err?: Error) => void
 ) => {
-  const proc = spawn(command, args);
+  const proc = spawn(command, args, {stdio: 'inherit'});
 
-  proc.stdout.on('data', (data: Stream) => {
+  proc.stdout?.on('data', (data: Stream) => {
     console.log(data.toString());
   });
 
-  proc.stderr.on('data', (data: Stream) => {
+  proc.stderr?.on('data', (data: Stream) => {
     console.log(data.toString());
   });
 
@@ -32,7 +32,7 @@ export const execCommand = (command: string, args?: string[]) => {
   writeFileSync('command.sh', command);
 
   exec('chmod', ['+x', 'command.sh'], () => {
-    exec('./command.sh', args, () => {
+    exec('./command.sh', args || [], () => {
       unlinkSync('command.sh');
     });
   });
