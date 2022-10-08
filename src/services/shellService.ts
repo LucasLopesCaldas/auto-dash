@@ -1,6 +1,7 @@
 import {Stream} from 'stream';
 import {spawn} from 'child_process';
 import {unlinkSync, writeFileSync} from 'fs';
+import log from '../utils/log';
 
 const exec = (
   command: string,
@@ -10,16 +11,16 @@ const exec = (
   const proc = spawn(command, args, {stdio: 'inherit'});
 
   proc.stdout?.on('data', (data: Stream) => {
-    console.log(data.toString());
+    log(data.toString());
   });
 
   proc.stderr?.on('data', (data: Stream) => {
-    console.log(data.toString());
+    log(data.toString());
   });
 
   proc.on('error', (error: Error) => {
-    console.log(error);
-    console.log('\n');
+    log(error);
+    log('\n');
     if (callback) callback(error);
   });
 
