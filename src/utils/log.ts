@@ -1,7 +1,9 @@
-import {Color} from './Color';
+import {LogColors} from './LogColors';
 
-export default (text: unknown, ...colors: Color[]) => {
+export default (text: unknown, ...colors: LogColors[]) => {
   console.log(
-    `${colors.toString().replace(/,/g, '') || Color.Reset}${text}${Color.Reset}`
+    `${colors.toString().replace(/,/g, '') || LogColors.Reset}${text}${
+      LogColors.Reset
+    }`
   );
 };
