@@ -1,10 +1,14 @@
-import {listAllDashes} from '../model/DashModel';
+import DashModel from '../model/DashModel';
 import {execCommand} from './shellService';
 
-export const execDash = (dash: string, args?: string[]) => {
-  execCommand(dash, args);
-};
+export default class DashService {
+  constructor(private dashes: DashModel) {}
 
-export const listDeshes = () => {
-  return listAllDashes();
-};
+  public execDash(dash: string, args?: string[]) {
+    execCommand(dash, args);
+  }
+
+  public listDeshes() {
+    return this.dashes.listAllDashes();
+  }
+}
