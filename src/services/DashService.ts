@@ -1,11 +1,11 @@
 import DashModel from '../model/DashModel';
-import {execCommand} from './shellService';
+import ShellService from './ShellService';
 
 export default class DashService {
-  constructor(private dashes: DashModel) {}
+  constructor(private dashes: DashModel, private shell: ShellService) {}
 
   public execDash(dash: string, args?: string[]) {
-    execCommand(dash, args);
+    this.shell.execCommand(dash, args);
   }
 
   public listDeshes() {
