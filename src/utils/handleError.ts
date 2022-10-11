@@ -1,15 +1,15 @@
 import {AxiosError} from 'axios';
-import {Color} from './Color';
+import strings from '../strings';
+import {LogColors} from './LogColors';
 import log from './log';
 
-export default (err: AxiosError) => {
-  if (err.isAxiosError) {
-    switch (err.response?.status) {
-      case 404:
-        log(
-          'Task not found\n\nTo list all tasks: \n npx auto-dash list',
-          Color.Bright
-        );
-    }
+export default (err: Error) => {
+  switch ((err as AxiosError).response?.status) {
+    case 404:
+      log(strings.text_task_not_found, LogColors.Bright);
+      break;
+    case undefined:
+      log(strings.internal_error, LogColors.FgRed, LogColors.Bright);
+      break;
   }
 };

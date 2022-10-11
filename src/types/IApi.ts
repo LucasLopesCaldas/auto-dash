@@ -1,3 +1,3 @@
 export default interface IApi {
-  get: () => Promise<Object>;
+  get: <T>(url: string) => Promise<T>;
 }
