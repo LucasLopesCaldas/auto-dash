@@ -1,4 +1,4 @@
-import {listAllDashes} from '../model/dashModel';
+import {listAllDashes} from '../model/DashModel';
 import {execCommand} from './shellService';
 
 export const execDash = (dash: string, args?: string[]) => {

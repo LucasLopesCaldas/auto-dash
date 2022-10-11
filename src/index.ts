@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import {getDash} from './model/dashModel';
+import {getDash} from './model/DashModel';
 import {execDash, listDeshes} from './services/dashService';
 import axios, {AxiosError} from 'axios';
 import config from './config';
