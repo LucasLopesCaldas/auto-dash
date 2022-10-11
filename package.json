@@ -26,8 +26,7 @@
   "author": "Lucas Lopes",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.26.1",
-    "dotenv": "^16.0.3"
+    "axios": "^0.26.1"
   },
   "types": "./build/src/index.d.ts",
   "repository": {

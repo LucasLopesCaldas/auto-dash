@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-import 'dotenv/config';
 import {getDash} from './model/dashModel';
 import {execDash, listDeshes} from './services/dashService';
 import axios, {AxiosError} from 'axios';
