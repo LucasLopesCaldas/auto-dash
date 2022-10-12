@@ -2,6 +2,8 @@ import {Stream} from 'stream';
 import {spawn} from 'child_process';
 import {existsSync, unlinkSync, writeFileSync} from 'fs';
 import log from '../utils/log';
+import strings from '../strings';
+import config from '../config';
 
 export default class ShellService {
   constructor() {}
@@ -33,11 +35,12 @@ export default class ShellService {
   }
 
   public execCommand(command: string, args?: string[]) {
-    writeFileSync('command.sh', command);
+    const commandFile = `${config.TEMP_FOLDER}${strings.temp_command_file_name}`;
+    writeFileSync(commandFile, command);
 
-    this.exec('chmod', ['+x', 'command.sh'], () => {
-      this.exec('./command.sh', args || [], () => {
-        if (existsSync('command.sh')) unlinkSync('command.sh');
+    this.exec('chmod', ['+x', commandFile], () => {
+      this.exec(commandFile, args || [], () => {
+        if (existsSync(commandFile)) unlinkSync(commandFile);
       });
     });
   }
