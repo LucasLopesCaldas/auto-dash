@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import config from './config';
+import config from './Config';
 import App from './App';
 import handleError from './utils/handleError';
 

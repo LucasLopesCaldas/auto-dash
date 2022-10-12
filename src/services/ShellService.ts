@@ -3,7 +3,7 @@ import {spawn} from 'child_process';
 import {existsSync, unlinkSync, writeFileSync} from 'fs';
 import log from '../utils/log';
 import strings from '../strings';
-import config from '../config';
+import config from '../Config';
 
 export default class ShellService {
   constructor() {}
