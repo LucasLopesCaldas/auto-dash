@@ -5,14 +5,14 @@ import ShellService from './services/ShellService';
 import strings from './strings';
 import {LogColors} from './utils/LogColors';
 import log from './utils/log';
+import CommandService from './services/CommandService';
 
 export default class App {
-  private dashes: DashService;
+  private commands: CommandService;
 
   constructor(baseURL: string) {
-    this.dashes = new DashService(
-      new DashModel(new AxiosApi(baseURL)),
-      new ShellService()
+    this.commands = new CommandService(
+      new DashService(new DashModel(new AxiosApi(baseURL)), new ShellService())
     );
   }
 
@@ -23,15 +23,15 @@ export default class App {
         break;
 
       case 'list':
-        this.dashes.listDeshes().then(dashes =>
-          dashes.forEach((dashName: string) => {
-            log(dashName, LogColors.FgGreen, LogColors.Bright);
-          })
-        );
+        this.commands.list();
+        break;
+
+      case 'local':
+        this.commands.local(args[0], args.slice(1));
         break;
 
       default:
-        await this.dashes.execDash(command, args);
+        await this.commands.dash(command, args);
         break;
     }
   }
