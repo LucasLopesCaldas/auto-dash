@@ -16,6 +16,12 @@ npx auto-dash <task> [arguments]
 ```shell
 npx auto-dash ts-init myapp  #Create a typescript project
 ```
+
+### To run a local tasks:
+```
+npx auto-dash local <.sh path>
+```
+
 ### To create a task:
 1. Clone the dash repository: `git clone git@github.com:LucasLopesCaldas/dashes.git`
 2. Create a new branch: `git checkout -b <branch name>`
