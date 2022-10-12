@@ -1,6 +1,6 @@
 import {Stream} from 'stream';
 import {spawn} from 'child_process';
-import {unlinkSync, writeFileSync} from 'fs';
+import {existsSync, unlinkSync, writeFileSync} from 'fs';
 import log from '../utils/log';
 
 export default class ShellService {
@@ -37,7 +37,7 @@ export default class ShellService {
 
     this.exec('chmod', ['+x', 'command.sh'], () => {
       this.exec('./command.sh', args || [], () => {
-        unlinkSync('command.sh');
+        if (existsSync('command.sh')) unlinkSync('command.sh');
       });
     });
   }
