@@ -10,9 +10,12 @@ import CommandService from './services/CommandService';
 export default class App {
   private commands: CommandService;
 
-  constructor(baseURL: string) {
+  constructor(baseURL: string, baseQuery?: Object) {
     this.commands = new CommandService(
-      new DashService(new DashModel(new AxiosApi(baseURL)), new ShellService())
+      new DashService(
+        new DashModel(new AxiosApi(baseURL, baseQuery)),
+        new ShellService()
+      )
     );
   }
 

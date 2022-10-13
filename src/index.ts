@@ -5,10 +5,10 @@ import App from './App';
 import handleError from './utils/handleError';
 
 const baseURL = config.BASE_URL;
-
+const baseQuery = config.BASE_QUERY;
 const args = process.argv.slice(2);
 
-const app = new App(baseURL);
+const app = new App(baseURL, baseQuery);
 app.execute(args[0], args.slice(1)).catch(err => {
   handleError(err);
 });
