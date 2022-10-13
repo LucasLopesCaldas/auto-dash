@@ -6,12 +6,12 @@ export default class DashModel {
   constructor(private api: IApi) {}
 
   public async getDash(dashName: string) {
-    const data = await this.api.get<DashResponse>(`${dashName}.sh`);
+    const data = await this.api.get<DashResponse>(`${dashName}/index.sh`);
     return decodeBase64(data.content);
   }
 
   public async getAllDashes() {
     const data = await this.api.get<DashResponse[]>('');
-    return data.map((dash: {name: string}) => dash.name.replace('.sh', ''));
+    return data.map((dash: {name: string}) => dash.name);
   }
 }
