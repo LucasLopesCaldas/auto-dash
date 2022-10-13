@@ -18,7 +18,7 @@ npx auto-dash local <.sh path>
 ```
 
 ### To create or modify a task:
-1. Clone the dash repository: 
+1. Clone the [dash repository](https://github.com/LucasLopesCaldas/dashes): 
   <br>`git clone git@github.com:LucasLopesCaldas/dashes.git`
 2. Create a new branch: 
   <br>`git checkout -b <branch name>`
