@@ -18,10 +18,16 @@ npx auto-dash local <.sh path>
 ```
 
 ### To create or modify a task:
-1. Clone the dash repository: `git clone git@github.com:LucasLopesCaldas/dashes.git`
-2. Create a new branch: `git checkout -b <branch name>`
-3. Create or modify and test a shell script that will be the task: `touch <task name>.sh`
-4. Commit and push
-5. Create a pull request
-6. Wait for me to approve
-7. **Be happy!**
+1. Clone the dash repository: 
+  <br>`git clone git@github.com:LucasLopesCaldas/dashes.git`
+2. Create a new branch: 
+  <br>`git checkout -b <branch name>`
+3. Create a folder with the name of the task: 
+  <br>`mkdir <task name>`
+4. Create, modify and test a shell script that will be the task inside the created folder: 
+  <br>`touch index.sh`
+5. Commit and push
+6. Create a pull request
+7. Wait for me to approve
+8. **Be happy!**
+
