@@ -18,4 +18,8 @@ export default class DashService {
   public getAllDashes() {
     return this.dashes.getAllDashes();
   }
+
+  public async getFile(path: string) {
+    return this.dashes.getFile(path);
+  }
 }
