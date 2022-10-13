@@ -13,8 +13,6 @@ export default class AxiosApi implements IApi {
 
   public async get<T>(url: string): Promise<T> {
     const res = await this.axiosInstance.get(url);
-    console.log(res);
-
     const {data} = res;
     return data;
   }
