@@ -1,5 +1,5 @@
 # Auto Dash
-Online Task Automator
+An online task automator
 
 
 ### To list tasks:
@@ -14,7 +14,7 @@ npx auto-dash <task> [arguments]
 
 ### To run a local tasks:
 ```
-npx auto-dash local <.sh path>
+npx auto-dash local <.sh or folder path>
 ```
 
 ### To create or modify a task:
@@ -24,7 +24,7 @@ npx auto-dash local <.sh path>
   <br>`git checkout -b <branch name>`
 3. Create a folder with the name of the task: 
   <br>`mkdir <task name>`
-4. Create, modify and test a shell script that will be the task inside the created folder: 
+4. Create, modify and test a shell script inside the created folder: 
   <br>`touch index.sh`
 5. Commit and push
 6. Create a pull request
