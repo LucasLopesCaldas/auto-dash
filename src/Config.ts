@@ -4,4 +4,5 @@ export default {
     ref: 'main',
   },
   TEMP_FOLDER: '/tmp/',
+  EXCLUDE_FILES: ['README.md'],
 };

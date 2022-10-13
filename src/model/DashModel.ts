@@ -1,3 +1,4 @@
+import Config from '../Config';
 import IApi from '../types/IApi';
 import {DashResponse} from '../types/RsponseTypes';
 import {decodeBase64} from '../utils/base64';
@@ -17,6 +18,8 @@ export default class DashModel {
 
   public async getAllDashes() {
     const data = await this.api.get<DashResponse[]>('');
-    return data.map((dash: {name: string}) => dash.name);
+    return data
+      .map((dash: {name: string}) => dash.name)
+      .filter(dash => !Config.EXCLUDE_FILES.includes(dash));
   }
 }
