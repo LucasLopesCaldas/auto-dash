@@ -11,15 +11,15 @@ export default class CommandService {
     await this.dashes.execDash(dash, args);
   }
 
-  public list() {
-    this.dashes.listDeshes().then(dashes =>
-      dashes.forEach((dashName: string) => {
-        log(dashName, LogColors.FgGreen, LogColors.Bright);
-      })
-    );
+  public async list() {
+    const dashes = await this.dashes.getAllDashes();
+
+    dashes.forEach((dashName: string) => {
+      log(dashName, LogColors.FgGreen, LogColors.Bright);
+    });
   }
 
-  local(path: string, args: string[]) {
+  public local(path: string, args: string[]) {
     if (!existsSync(path)) {
       return log(`${strings.not_found}: ${path}`, LogColors.Bright);
     }

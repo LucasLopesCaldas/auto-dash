@@ -15,7 +15,7 @@ export default class DashService {
     this.shell.execCommand(dash, args);
   }
 
-  public listDeshes() {
-    return this.dashes.listAllDashes();
+  public getAllDashes() {
+    return this.dashes.getAllDashes();
   }
 }

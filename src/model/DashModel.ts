@@ -10,7 +10,7 @@ export default class DashModel {
     return decodeBase64(data.content);
   }
 
-  public async listAllDashes() {
+  public async getAllDashes() {
     const data = await this.api.get<DashResponse[]>('');
     return data.map((dash: {name: string}) => dash.name.replace('.sh', ''));
   }
