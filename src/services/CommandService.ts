@@ -1,4 +1,4 @@
-import {existsSync} from 'fs';
+import {existsSync, lstatSync, writeFileSync} from 'fs';
 import strings from '../strings';
 import log from '../utils/log';
 import {LogColors} from '../utils/LogColors';
@@ -20,9 +20,24 @@ export default class CommandService {
   }
 
   public local(path: string, args: string[]) {
-    if (!existsSync(path)) {
-      return log(`${strings.not_found}: ${path}`, LogColors.Bright);
+    let filePath: string;
+
+    if (existsSync(path) && lstatSync(path).isDirectory()) {
+      filePath = `${path}${!path.endsWith('/') ? '/' : ''}index.sh`;
+    } else {
+      filePath = path;
     }
-    this.dashes.execLocalDash(path, args);
+
+    if (!existsSync(filePath)) {
+      return log(`${strings.not_found}: ${filePath}`, LogColors.Bright);
+    }
+    this.dashes.execLocalDash(filePath, args);
+  }
+
+  public async get(path: string) {
+    const file = await this.dashes.getFile(path);
+    const fileName = path.split('/')[path.split('/').length - 1];
+    writeFileSync(fileName, file);
+    log(fileName, LogColors.Bright);
   }
 }

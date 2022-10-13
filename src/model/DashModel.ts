@@ -10,6 +10,11 @@ export default class DashModel {
     return decodeBase64(data.content);
   }
 
+  public async getFile(filePath: string) {
+    const data = await this.api.get<DashResponse>(filePath);
+    return decodeBase64(data.content);
+  }
+
   public async getAllDashes() {
     const data = await this.api.get<DashResponse[]>('');
     return data.map((dash: {name: string}) => dash.name);
