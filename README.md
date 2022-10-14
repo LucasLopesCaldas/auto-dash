@@ -4,12 +4,12 @@ An online task automator
 
 ### To list tasks:
 ```
-npx auto-dash list
+npx auto-dash list <?task args>
 ```
 
 ### To run a task:
 ```
-npx auto-dash <task> [arguments]
+npx auto-dash <task> [?arguments]
 ```
 
 ### To run a local tasks:
