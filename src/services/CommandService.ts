@@ -1,5 +1,4 @@
 import {existsSync, lstatSync, writeFileSync} from 'fs';
-import strings from '../strings';
 import log from '../utils/log';
 import {LogColors} from '../utils/LogColors';
 import DashService from './DashService';
@@ -14,7 +13,7 @@ export default class CommandService {
   public async list() {
     const dashes = await this.dashes.getAllDashes();
 
-    dashes.forEach((dashName: string) => {
+    dashes?.forEach((dashName: string) => {
       log(dashName, LogColors.FgGreen, LogColors.Bright);
     });
   }
@@ -26,10 +25,6 @@ export default class CommandService {
       filePath = `${path}${!path.endsWith('/') ? '/' : ''}index.sh`;
     } else {
       filePath = path;
-    }
-
-    if (!existsSync(filePath)) {
-      return log(`${strings.not_found}: ${filePath}`, LogColors.Bright);
     }
     this.dashes.execLocalDash(filePath, args);
   }
