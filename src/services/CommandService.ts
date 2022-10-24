@@ -15,6 +15,16 @@ export default class CommandService {
 
   public async list(args?: string[]) {
     const dashes = await this.dashes.getAllDashes();
+    log(dashes?.join('\n'), LogColors.Bright, LogColors.FgGreen)
+  }
+
+  public async select(args?: string[]) {
+    if (args?.length) {
+      await this.dash(args[0], args.slice(1));
+      return
+    }
+
+    const dashes = await this.dashes.getAllDashes();
 
     const dash = await prompts({
       type: 'autocomplete',
