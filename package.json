@@ -1,6 +1,6 @@
 {
   "name": "auto-dash",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "main": "./build/src/index.js",
   "bin": {
     "auto-dash": "build/src/index.js"
