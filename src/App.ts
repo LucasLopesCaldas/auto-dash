@@ -26,7 +26,7 @@ export default class App {
         break;
 
       case 'list':
-        await this.commands.list(args);
+        await this.commands.list();
         break;
 
       case 'select':

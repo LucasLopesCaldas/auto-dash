@@ -13,15 +13,15 @@ export default class CommandService {
     await this.dashes.execDash(dash, args);
   }
 
-  public async list(args?: string[]) {
+  public async list() {
     const dashes = await this.dashes.getAllDashes();
-    log(dashes?.join('\n'), LogColors.Bright, LogColors.FgGreen)
+    log(dashes?.join('\n'), LogColors.Bright, LogColors.FgGreen);
   }
 
   public async select(args?: string[]) {
     if (args?.length) {
       await this.dash(args[0], args.slice(1));
-      return
+      return;
     }
 
     const dashes = await this.dashes.getAllDashes();
